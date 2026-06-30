@@ -8,6 +8,15 @@ This project is intentionally simple and learning-focused. It does not represent
 
 This project is divided into hands-on labs so each AWS topic can be practiced in a focused and manageable way. Together, the labs show a beginner cloud workflow from local development to AWS deployment, monitoring, and cost awareness.
 
+## Current Status
+
+- [x] Completed Lab 01: S3 Static Website Hosting
+- [x] Completed Lab 02: AWS CLI Deployment
+- [x] Completed Lab 03: AWS Budgets and Cost Monitoring
+- [x] Completed Lab 04: EC2 Linux Practice
+- [x] Completed Lab 05: CloudWatch Basic Monitoring
+- [x] Configured GitHub Actions workflow for automated S3 deployment
+
 ## Architecture Overview
 
 ```text
@@ -81,6 +90,16 @@ This lab introduces simple monitoring concepts using Amazon CloudWatch. It is me
 - Creating a simple CPU alarm
 - Understanding alerting basics
 - Connecting monitoring to responsible cloud operations
+
+## Lab 06: GitHub Actions S3 Deployment
+
+This lab adds a simple CI/CD workflow using GitHub Actions. When changes are pushed to the repository, GitHub Actions automatically syncs the website files to the Amazon S3 bucket.
+
+This helps practice a basic automated deployment workflow while keeping AWS credentials stored securely in GitHub repository secrets.
+
+### Lab 06: GitHub Actions S3 Deployment
+
+![GitHub Actions S3 Deployment](screenshots/lab06-github-actions-s3-deployment.png)
 
 ## Tools and AWS Services Used
 

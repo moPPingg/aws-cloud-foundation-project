@@ -4,6 +4,7 @@
 *.crt
 .env
 .env.*
+cloud-practice.txt
 .aws/
 credentials
 config
