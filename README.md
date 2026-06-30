@@ -165,7 +165,7 @@ It also helped me improve documentation habits by recording each lab clearly wit
 
 ## Next Steps
 
-- Least-privilege IAM policy for S3 deployment
+- Review and refine IAM permissions as the project grows
 - CloudFront CDN for static website delivery
 - Better CloudWatch alarm setup
 - Simple serverless visitor counter with Lambda, API Gateway, and DynamoDB
