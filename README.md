@@ -120,6 +120,8 @@ Available screenshots:
 
 ![EC2 Linux Practice](screenshots/lab04-ec2-linux-practice.png)
 
+![CloudWatch Basic Monitoring](screenshots/lab05-cloudwatch-basic-monitoring.png)
+
 ```text
 screenshots/lab01-s3-static-website.png
 screenshots/lab02-aws-cli-deployment.png
