@@ -1,16 +1,14 @@
-name: Deploy S3 Website
+name: Deploy Static Website to S3
 
 on:
   push:
     branches:
-      - master
-    paths:
-      - "website/**"
-      - ".github/workflows/deploy-s3.yml"
+      - main
   workflow_dispatch:
 
 jobs:
   deploy:
+    name: Sync website files to Amazon S3
     runs-on: ubuntu-latest
 
     steps:
@@ -25,4 +23,5 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Sync website files to S3
-        run: aws s3 sync website/ s3://${{ secrets.AWS_S3_BUCKET }} --delete
+        run: |
+          aws s3 sync website/ s3://khoi-aws-cloud-foundation-project-2026 --delete
