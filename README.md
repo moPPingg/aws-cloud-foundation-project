@@ -116,7 +116,9 @@ This is a personal learning project, but basic security habits still matter.
 
 ## Screenshots
 
-Placeholder paths for future screenshots:
+Available screenshots:
+
+![EC2 Linux Practice](screenshots/lab04-ec2-linux-practice.png)
 
 ```text
 screenshots/lab01-s3-static-website.png
