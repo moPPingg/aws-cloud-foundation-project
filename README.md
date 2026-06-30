@@ -1,40 +1,46 @@
 # AWS Cloud Foundation Project
 
-A beginner-friendly AWS hands-on project created to support cloud fundamentals learning and FCJ Workforce preparation. This repository is organized as a set of small labs covering static website hosting, command-line deployment, cost awareness, Linux server practice, and basic monitoring in AWS.
-
-This project is intentionally simple and learning-focused. It does not represent production-level cloud engineering experience. The goal is to build practical familiarity with core services and document the learning process clearly.
-
 ## Project Overview
 
-This project is divided into hands-on labs so each AWS topic can be practiced in a focused and manageable way. Together, the labs show a beginner cloud workflow from local development to AWS deployment, monitoring, and cost awareness.
+This is a beginner AWS hands-on project built to practice core cloud skills in a simple and honest way. The project covers S3 static website hosting, AWS CLI deployment, cost monitoring with AWS Budgets, EC2 Linux practice, basic CloudWatch monitoring, and GitHub Actions deployment.
 
-## Current Status
-
-- [x] Completed Lab 01: S3 Static Website Hosting
-- [x] Completed Lab 02: AWS CLI Deployment
-- [x] Completed Lab 03: AWS Budgets and Cost Monitoring
-- [x] Completed Lab 04: EC2 Linux Practice
-- [x] Completed Lab 05: CloudWatch Basic Monitoring
-- [x] Configured GitHub Actions workflow for automated S3 deployment
+The goal is to build practical familiarity with AWS services and document the learning process clearly. This project is learning-focused and does not claim production-level cloud engineering experience.
 
 ## Architecture Overview
 
 ```text
-Developer Laptop -> AWS CLI -> Amazon S3 -> User Browser
-Developer Laptop -> SSH -> EC2 Ubuntu Instance -> CloudWatch CPU Alarm
+Developer Laptop -> GitHub Repository -> GitHub Actions -> Amazon S3 Static Website -> User Browser
+Developer Laptop -> AWS CLI -> Amazon S3 Bucket
+Developer Laptop -> SSH -> EC2 Ubuntu Instance -> CloudWatch Metrics
 AWS Account -> AWS Budgets -> Email Alert
 ```
+
+## Current Status
+
+- [x] Created local static website with HTML/CSS
+- [x] Hosted website using Amazon S3
+- [x] Deployed website using AWS CLI
+- [x] Created AWS Budget and billing alert
+- [x] Launched EC2 Ubuntu instance
+- [x] Connected to EC2 through SSH
+- [x] Reviewed basic CloudWatch monitoring metrics
+- [x] Configured GitHub Actions workflow for automated S3 deployment
+- [x] Replaced broad S3 permissions with a least-privilege IAM policy
+- [x] Added final screenshots and documentation
 
 ## Repository Structure
 
 ```text
 aws-cloud-foundation-lab/
 |-- README.md
+|-- .gitignore
+|-- .github/
+|   `-- workflows/
+|       `-- deploy-s3.yml
 |-- website/
 |   |-- index.html
 |   `-- style.css
 |-- docs/
-|   |-- architecture.md
 |   `-- cost-control-checklist.md
 |-- scripts/
 |   `-- deploy-s3.md
@@ -43,119 +49,123 @@ aws-cloud-foundation-lab/
 
 ## Lab 01: S3 Static Website Hosting
 
-This lab introduces static website hosting with Amazon S3. The focus is on publishing a simple HTML and CSS website from a storage bucket and understanding how S3 can be used for basic web delivery.
+This lab focuses on publishing a simple static website with Amazon S3 and understanding the basics of bucket-based web hosting.
 
-- Preparing a bucket for static website hosting
-- Uploading website files
-- Reviewing public access settings carefully for learning use
-- Checking the site in a browser
+- Create a simple website with HTML and CSS
+- Configure an S3 bucket for static website hosting
+- Upload website files to the bucket
+- Review public access settings carefully for learning use
 
 ## Lab 02: AWS CLI Deployment
 
-This lab focuses on deploying website files with the AWS CLI from a local machine. It helps build confidence with command-line workflow and repeatable updates to S3-hosted content.
+This lab practices deploying website files from a local machine to Amazon S3 with the AWS CLI.
 
-- Checking AWS CLI installation
-- Configuring credentials locally
-- Verifying the active AWS identity
-- Syncing website files to an S3 bucket
-
-![AWS CLI deployment screenshot](screenshots/lab02-aws-cli-deployment.png)
+- Check AWS CLI installation
+- Configure local AWS credentials
+- Verify the active AWS identity
+- Sync the `website/` folder to the S3 bucket
 
 ## Lab 03: AWS Budgets and Cost Monitoring
 
-This lab introduces AWS Budgets as a beginner tool for cost awareness. The goal is to create simple spending alerts and build responsible habits while learning in AWS.
+This lab focuses on cost awareness by creating a simple AWS Budget and email alert.
 
-- Creating a monthly budget
-- Setting an early email alert
-- Watching for unexpected usage
-- Reviewing cloud cost as part of the lab workflow
+- Create a monthly AWS Budget
+- Set an early billing alert
+- Review estimated cost during the learning process
+- Build better habits around cloud cost monitoring
 
 ## Lab 04: EC2 Linux Practice
 
-This lab is focused on beginner Linux practice using an EC2 instance. It helps with understanding remote access, basic server operations, and command-line familiarity in a cloud environment.
-The Lab 04 screenshot is intended to show a successful EC2 terminal session, including the `ubuntu` user, working directory, AWS kernel details, and the output from `cloud-practice.txt`.
+This lab focuses on beginner Linux practice on an EC2 Ubuntu instance and basic remote access through SSH.
 
-- Launching a Linux-based EC2 instance
-- Connecting through SSH
-- Practicing basic Linux navigation and commands
-- Stopping or terminating the instance after use
+- Launch a Linux-based EC2 instance
+- Connect to the instance through SSH
+- Practice basic Linux navigation and commands
+- Stop or terminate the instance after use
 
-![EC2 Linux Practice](screenshots/lab04-ec2-linux-practice.png)
+The screenshot shows a successful EC2 terminal session with the `ubuntu` user, `/home/ubuntu`, an AWS kernel from `uname -a`, and the `cloud-practice.txt` output.
 
 ## Lab 05: CloudWatch Basic Monitoring
 
-This lab introduces simple monitoring concepts using Amazon CloudWatch. It is meant to build awareness of metrics, alarms, and basic operational visibility.
+This lab focuses on reviewing basic EC2 monitoring data in Amazon CloudWatch.
 
-- Viewing EC2 metrics
-- Creating a simple CPU alarm
-- Understanding alerting basics
-- Connecting monitoring to responsible cloud operations
+- Open CloudWatch from the EC2 workflow
+- Review basic EC2 metrics in CloudWatch
+- Observe usage trends such as CPU activity
+- Connect monitoring review to responsible cloud operations
 
 ## Lab 06: GitHub Actions S3 Deployment
 
-This lab adds a simple CI/CD workflow using GitHub Actions. When changes are pushed to the repository, GitHub Actions automatically syncs the website files to the Amazon S3 bucket.
+This lab adds a simple CI/CD workflow using GitHub Actions. When changes are pushed to the repository, GitHub Actions automatically syncs the website files to the Amazon S3 bucket. AWS credentials are stored in GitHub repository secrets.
 
-This helps practice a basic automated deployment workflow while keeping AWS credentials stored securely in GitHub repository secrets.
+### Least-Privilege IAM Improvement
 
-### Lab 06: GitHub Actions S3 Deployment
+As a beginner security improvement, the deployment IAM user was updated from broader S3 access to a custom least-privilege policy named `S3DeployOnly-khoi-cloud-foundation-project`.
 
-![GitHub Actions S3 Deployment](screenshots/lab06-github-actions-s3-deployment.png)
+This policy limits deployment access to only the minimum S3 permissions needed to upload, update, and manage website files in the project bucket `khoi-aws-cloud-foundation-project-2026`. GitHub Actions still deploys successfully after switching to this more limited policy.
 
 ## Tools and AWS Services Used
 
-Tools:
-
-- HTML
-- CSS
-- AWS CLI
-- SSH
-- Local text editor or IDE
-
-AWS services:
-
 - Amazon S3
+- AWS CLI
+- AWS Budgets
 - Amazon EC2
 - Amazon CloudWatch
-- AWS Budgets
-- AWS Identity and Access Management (IAM)
+- GitHub Actions
+- IAM
+- Ubuntu Linux
+- SSH
+- HTML/CSS
+- GitHub
 
 ## Cost Control Checklist
 
 - Use the AWS Free Tier where possible
-- Set up an AWS Budget with an early alert threshold
-- Terminate or stop EC2 instances after lab practice
-- Keep only the files needed in S3
+- Set up a budget and billing alert early
+- Stop or terminate the EC2 instance after practice
+- Keep S3 content limited to the project website files
 - Review active resources after each lab
-- Avoid creating extra services that are not required for learning
 
 ## Security Notes
 
-This is a personal learning project, but basic security habits still matter.
+- No AWS access keys are stored in GitHub
+- No `.pem` files are stored in GitHub
+- GitHub Secrets are used for CI/CD credentials
+- Replaced broad S3 permissions with a least-privilege IAM policy limited to the project bucket
+- The public S3 bucket only contains static website files
+- The EC2 instance should be terminated after practice
 
-- Do not commit AWS access keys or secret keys to GitHub
-- Use least-privilege IAM permissions where possible
-- Do not place sensitive data in a public S3 bucket
-- Limit SSH exposure to trusted access when possible
-- Clean up unused resources and credentials after testing
+## Screenshots
 
+### Lab 01: S3 Static Website Hosting
+![S3 Static Website](screenshots/lab01-s3-static-website.png)
+
+### Lab 02: AWS CLI Deployment
+![AWS CLI Deployment](screenshots/lab02-aws-cli-deployment.png)
+
+### Lab 03: AWS Budgets and Cost Monitoring
+![AWS Budgets Cost Monitoring](screenshots/lab03-aws-budgets-cost-monitoring.png)
+
+### Lab 04: EC2 Linux Practice
+![EC2 Linux Practice](screenshots/lab04-ec2-linux-practice.png)
+
+### Lab 05: CloudWatch Basic Monitoring
+![CloudWatch Basic Monitoring](screenshots/lab05-cloudwatch-basic-monitoring.png)
+
+### Lab 06: GitHub Actions S3 Deployment
+![GitHub Actions S3 Deployment](screenshots/lab06-github-actions-s3-deployment.png)
 
 ## Learning Outcomes
 
-This project helps build beginner-level understanding of:
+This project helped me build beginner-level confidence with core AWS workflows. I practiced how to host and update a static website, monitor basic cloud cost, connect to an EC2 Linux instance through SSH, review CloudWatch metrics, and use GitHub Actions for simple automated deployment.
 
-- Static website hosting on AWS
-- Basic CLI-based deployment workflow
-- Cost awareness and budget monitoring
-- Linux server access through EC2
-- Monitoring concepts with CloudWatch
-- Writing technical notes and documentation for a learning portfolio
+It also helped me improve documentation habits by recording each lab clearly with screenshots and short explanations.
+
+- Practiced the principle of least privilege in IAM by limiting deployment permissions to one S3 bucket.
 
 ## Next Steps
 
-Possible next steps after this foundation project:
-
-- IAM policy and permission design basics
-- Deeper CloudWatch metrics and logs exploration
-- Amazon RDS introduction
-- Simple API deployment on AWS
-- Beginner data pipeline practice
+- Least-privilege IAM policy for S3 deployment
+- CloudFront CDN for static website delivery
+- Better CloudWatch alarm setup
+- Simple serverless visitor counter with Lambda, API Gateway, and DynamoDB
