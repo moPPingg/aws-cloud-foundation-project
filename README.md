@@ -50,6 +50,8 @@ This lab focuses on deploying website files with the AWS CLI from a local machin
 - Verifying the active AWS identity
 - Syncing website files to an S3 bucket
 
+![AWS CLI deployment screenshot](screenshots/lab02-aws-cli-deployment.png)
+
 ## Lab 03: AWS Budgets and Cost Monitoring
 
 This lab introduces AWS Budgets as a beginner tool for cost awareness. The goal is to create simple spending alerts and build responsible habits while learning in AWS.
@@ -62,6 +64,7 @@ This lab introduces AWS Budgets as a beginner tool for cost awareness. The goal 
 ## Lab 04: EC2 Linux Practice
 
 This lab is focused on beginner Linux practice using an EC2 instance. It helps with understanding remote access, basic server operations, and command-line familiarity in a cloud environment.
+The Lab 04 screenshot is intended to show a successful EC2 terminal session, including the `ubuntu` user, working directory, AWS kernel details, and the output from `cloud-practice.txt`.
 
 - Launching a Linux-based EC2 instance
 - Connecting through SSH
