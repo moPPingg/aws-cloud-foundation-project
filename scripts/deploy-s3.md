@@ -34,6 +34,12 @@ Deploy the website files to your S3 bucket:
 aws s3 sync website/ s3://YOUR_BUCKET_NAME --delete
 ```
 
+## Screenshot
+
+AWS CLI deployment example:
+
+![AWS CLI deployment screenshot](../screenshots/lab02-aws-cli-deployment.png)
+
 ## Safety Notes
 
 - Do not share or commit AWS credentials to GitHub

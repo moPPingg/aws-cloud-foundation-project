@@ -71,6 +71,8 @@ The Lab 04 screenshot is intended to show a successful EC2 terminal session, inc
 - Practicing basic Linux navigation and commands
 - Stopping or terminating the instance after use
 
+![EC2 Linux Practice](screenshots/lab04-ec2-linux-practice.png)
+
 ## Lab 05: CloudWatch Basic Monitoring
 
 This lab introduces simple monitoring concepts using Amazon CloudWatch. It is meant to build awareness of metrics, alarms, and basic operational visibility.
@@ -117,21 +119,6 @@ This is a personal learning project, but basic security habits still matter.
 - Limit SSH exposure to trusted access when possible
 - Clean up unused resources and credentials after testing
 
-## Screenshots
-
-Available screenshots:
-
-![EC2 Linux Practice](screenshots/lab04-ec2-linux-practice.png)
-
-![CloudWatch Basic Monitoring](screenshots/lab05-cloudwatch-basic-monitoring.png)
-
-```text
-screenshots/lab01-s3-static-website.png
-screenshots/lab02-aws-cli-deployment.png
-screenshots/lab03-aws-budgets-cost-monitoring.png
-screenshots/lab04-ec2-linux-practice.png
-screenshots/lab05-cloudwatch-basic-monitoring.png
-```
 
 ## Learning Outcomes
 
