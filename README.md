@@ -6,6 +6,10 @@ This is a beginner AWS hands-on project built to practice core cloud skills in a
 
 The goal is to build practical familiarity with AWS services and document the learning process clearly. This project is learning-focused and does not claim production-level cloud engineering experience.
 
+Live Demo: <PASTE_MY_S3_WEBSITE_ENDPOINT_HERE>
+
+This demo uses an Amazon S3 static website endpoint for learning purposes.
+
 ## Architecture Overview
 
 ```text
